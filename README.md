@@ -23,7 +23,7 @@ $ composer require aequasi/cron-bundle "~1.0.0"
 public function registerBundles()
 {
 	// ...
-	$bundle = array(
+	$bundles = array(
 		// ...
         new ColourStream\Bundle\CronBundle\ColourStreamCronBundle(),
 	);

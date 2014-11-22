@@ -81,7 +81,7 @@ class CronRunCommand extends ContainerAwareCommand
         if (!file_exists($this->getCacheFile())) {
             $commandToRun = $this->getApplication()->get('cron:scan');
             $commandToRun->execute(new ArgvInput(), new NullOutput());
-            
+
             return $tryAgain ? $this->getJobs(false) : [];
         }
 
