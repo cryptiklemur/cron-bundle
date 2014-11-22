@@ -1,15 +1,10 @@
 # Cron Bundle
 
-### This bundle is heavily based off of the ColourStream Cron Bundle. But the development on it was dead, so i picked it up.
-
-This bundle provides a simple interface for registering repeated scheduled
-tasks within your application.
+This bundle provides a simple interface for registering repeated scheduled tasks within your application.
 
 This bundle is tested only against Symfony 2.3, but should work on anything after 2.3, until at least 3.0.
 
 ## Installation
-
-Installing this bundle can be done through these simple steps:
 
 1. Add the bundle to your project as a composer dependency:
 
@@ -17,15 +12,16 @@ Installing this bundle can be done through these simple steps:
 $ composer require aequasi/cron-bundle "~1.0.0"
 ```
 
-3. Add the bundle to your application kernel:
+3. Add the bundle to AppKernel:
+
 ```php
-// app/AppKernel.php
+// AppKernel.php
 public function registerBundles()
 {
 	// ...
 	$bundles = array(
 		// ...
-        new ColourStream\Bundle\CronBundle\ColourStreamCronBundle(),
+        new Aequasi\Bundle\CronBundle\AequasiCronBundle(),
 	);
     // ...
 
@@ -59,16 +55,7 @@ Creating your own tasks with CronBundle couldn't be easier - all you have to do 
  */
 class DemoCommand extends Command
 {
-    public function configure()
-    {
-		// Must have a name configured
-		// ...
-    }
-    
-    public function execute(InputInterface $input, OutputInterface $output)
-    {
-		// Your code here
-    }
+    // ...
 }
 ```
 
