@@ -1,31 +1,20 @@
-# ColourStream Cron Bundle
+# Cron Bundle
+
+### This bundle is heavily based off of the ColourStream Cron Bundle. But the development on it was dead, so i picked it up.
 
 This bundle provides a simple interface for registering repeated scheduled
 tasks within your application, including support for installs where the host
 does not allow for command-line access (TODO).
 
-This bundle is tested only against Symfony 2.1. It will likely work with Symfony 2.0, but YMMV
+This bundle is tested only against Symfony 2.3.
 
 ## Installation
 
 Installing this bundle can be done through these simple steps:
 
 1. Add the bundle to your project as a composer dependency:
-```javascript
-// composer.json
-{
-    // ...
-    require: {
-        // ...
-        "colourstream/cron-bundle": "dev-master"
-    }
-}
-```
 
-2. Update your composer installation:
-```shell
-composer update
-````
+`composer require aequasi/cron-bundle "~1.0.0"`
 
 3. Add the bundle to your application kernel:
 ```php
@@ -43,12 +32,7 @@ public function registerBundles()
 }
 ```
 
-4. Update your DB schema
-```shell
-app/console doctrine:schema:update
-```
-
-4. Start using the bundle:
+3. Start using the bundle:
 ```shell
 app/console cron:scan
 app/console cron:run
@@ -67,6 +51,7 @@ This will schedule your tasks to run at most every 5 minutes - for instance, tas
 ## Creating your own tasks
 
 Creating your own tasks with CronBundle couldn't be easier - all you have to do is create a normal Symfony2 Command (or ContainerAwareCommand) and tag it with the @CronJob annotation, as demonstrated below:
+
 ```php
 /**
  * @CronJob("PT1H")
@@ -88,3 +73,6 @@ class DemoCommand extends Command
 
 The interval spec ("PT1H" in the above example) is documented on the [DateInterval](http://au.php.net/manual/en/dateinterval.construct.php) documentation page, and can be modified whenever you choose.
 For your CronJob to be scanned and included in future runs, you must first run `app/console cron:scan` - it will be scheduled to run the next time you run `app/console cron:run`
+
+
+If you add a new command, you have to run the scan function for it to get picked up, or clear the symfony cache.

@@ -1,5 +1,6 @@
 <?php
-namespace ColourStream\Bundle\CronBundle\Annotation;
+
+namespace Aequasi\Bundle\CronBundle\Annotation;
 
 /**
  * @Annotation()
@@ -7,6 +8,9 @@ namespace ColourStream\Bundle\CronBundle\Annotation;
  */
 use Doctrine\Common\Annotations\Annotation;
 
+/**
+ * @author Aaron Scherer <aequasi@gmail.com>
+ */
 class CronJob extends Annotation
 {
     public $value;

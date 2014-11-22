@@ -1,6 +1,6 @@
 <?php
 
-namespace ColourStream\Bundle\CronBundle;
+namespace Aequasi\Bundle\CronBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
