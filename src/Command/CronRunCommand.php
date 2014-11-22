@@ -72,12 +72,17 @@ class CronRunCommand extends ContainerAwareCommand
     }
 
     /**
+     * @param bool $tryAgain
+     *
      * @return string[]
      */
-    private function getJobs()
+    private function getJobs($tryAgain = true)
     {
         if (!file_exists($this->getCacheFile())) {
-            return [];
+            $commandToRun = $this->getApplication()->get('cron:scan');
+            $commandToRun->execute(new ArgvInput(), new NullOutput());
+            
+            return $tryAgain ? $this->getJobs(false) : [];
         }
 
         return json_decode(file_get_contents($this->getCacheFile()), true);

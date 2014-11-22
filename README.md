@@ -3,10 +3,9 @@
 ### This bundle is heavily based off of the ColourStream Cron Bundle. But the development on it was dead, so i picked it up.
 
 This bundle provides a simple interface for registering repeated scheduled
-tasks within your application, including support for installs where the host
-does not allow for command-line access (TODO).
+tasks within your application.
 
-This bundle is tested only against Symfony 2.3.
+This bundle is tested only against Symfony 2.3, but should work on anything after 2.3, until at least 3.0.
 
 ## Installation
 
@@ -14,7 +13,9 @@ Installing this bundle can be done through these simple steps:
 
 1. Add the bundle to your project as a composer dependency:
 
-`composer require aequasi/cron-bundle "~1.0.0"`
+```shell
+$ composer require aequasi/cron-bundle "~1.0.0"
+```
 
 3. Add the bundle to your application kernel:
 ```php
@@ -34,8 +35,8 @@ public function registerBundles()
 
 3. Start using the bundle:
 ```shell
-app/console cron:scan
-app/console cron:run
+$ app/console cron:scan
+$ app/console cron:run
 ```
 
 ## Running your cron jobs automatically
