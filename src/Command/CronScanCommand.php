@@ -1,11 +1,19 @@
 <?php
+
+/**
+ * This file is part of AequasiCronBundle
+ *
+ * (c) Aaron Scherer <aequasi@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE
+ */
+
 namespace Aequasi\Bundle\CronBundle\Command;
 
 use aequasi\Bundle\CronBundle\Annotation\CronJob;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -13,15 +21,19 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class CronScanCommand extends ContainerAwareCommand
 {
+    /**
+     * {@inheritDoc}
+     */
     protected function configure()
     {
-        $this->setName("cron:scan")
-            ->setDescription("Scans for any new or deleted cron jobs");
+        $this->setName("cron:scan")->setDescription("Scans for any new or deleted cron jobs");
     }
 
     /**
      * @param InputInterface  $input
      * @param OutputInterface $output
+     *
+     * @return void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
