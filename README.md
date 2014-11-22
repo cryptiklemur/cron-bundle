@@ -19,7 +19,7 @@ $ composer require aequasi/cron-bundle "~1.0.0"
 
 3. Add the bundle to your application kernel:
 ```php
-// application/ApplicationKernel.php
+// app/AppKernel.php
 public function registerBundles()
 {
 	// ...
@@ -76,4 +76,4 @@ The interval spec ("PT1H" in the above example) is documented on the [DateInterv
 For your CronJob to be scanned and included in future runs, you must first run `app/console cron:scan` - it will be scheduled to run the next time you run `app/console cron:run`
 
 
-If you add a new command, you have to run the scan function for it to get picked up, or clear the symfony cache.
+#### If you add a new command, you have to run the scan function for it to get picked up, or clear the symfony cache.
