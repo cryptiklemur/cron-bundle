@@ -16,6 +16,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * @author Aaron Scherer <aequasi@gmail.com>
  */
-class ColourStreamCronBundle extends Bundle
+class AequasiCronBundle extends Bundle
 {
 }
